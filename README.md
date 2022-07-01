@@ -11,6 +11,7 @@ Customise and build LXD images using Packer + Ansible
 ## Tested on
 
 * Ubuntu 22.04
+* Mint Una 20.3
 
 ## Running the code
 
