@@ -27,6 +27,7 @@ packer build lxd-ansible-local.json.pkr.hcl
 # References
 
 * Referenced material at [Blagovest Petrov's great blog site](https://petrovs.info/post/2020-11-03-building-lxd-with-packer/)
+* [Honour Ansible output colouring](https://github.com/hashicorp/packer-plugin-ansible/issues/16#issuecomment-990284673)
 
 # Notes
 

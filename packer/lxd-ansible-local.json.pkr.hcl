@@ -33,9 +33,9 @@ build {
   provisioner "ansible" {
     playbook_file = "../ansible/playbooks/site.yml"
     inventory_file = "../ansible/inventory"
+    ansible_env_vars = ["ANSIBLE_FORCE_COLOR=1"]
     // extra_arguments = [
-    //   "-e ansible_connection=lxd",
-    //   // "-vvvvv"
+    //   "-vvvvv"
     // ]
   }
 
