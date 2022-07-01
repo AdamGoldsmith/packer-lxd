@@ -15,6 +15,6 @@
     - name: Create a test file
       ansible.builtin.file:
         path: /tmp/mytestfile
-        mode: '0644'
+        mode: '0666'
         state: touch
       delegate_to: localhost
