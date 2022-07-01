@@ -6,12 +6,12 @@
 
   tasks:
 
-    # - name: Install Apache
-    #   ansible.builtin.apt:
-    #     name: apache2
-    #     state: present
+    - name: Install Apache
+      ansible.builtin.apt:
+        name: apache2
+        state: present
 
-
+    # Test localhost commands work ok
     - name: Create a test file
       ansible.builtin.file:
         path: /tmp/mytestfile
