@@ -1,0 +1,20 @@
+---
+
+- name: 'Provision Image'
+  hosts: packer
+  become: true
+
+  tasks:
+
+    # - name: Install Apache
+    #   ansible.builtin.apt:
+    #     name: apache2
+    #     state: present
+
+
+    - name: Create a test file
+      ansible.builtin.file:
+        path: /tmp/mytestfile
+        mode: '0644'
+        state: touch
+      delegate_to: localhost

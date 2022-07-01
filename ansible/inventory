@@ -1,0 +1,9 @@
+[packer]
+packer-itc-jammy
+
+[packer:vars]
+ansible_connection=lxd
+ansible_user=root
+ansible_become=no
+ansible_lxd_remote=local
+ansible_lxd_project=default
