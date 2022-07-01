@@ -11,10 +11,11 @@
         name: apache2
         state: present
 
-    # Test localhost commands work ok
+    # Test localhost commands work as expected
     - name: Create a test file
-      ansible.builtin.file:
-        path: /tmp/mytestfile
-        mode: '0666'
-        state: touch
+      ansible.builtin.copy:
+        content: My test data
+        dest: /tmp/mytestfile
+        owner: "{{ lookup('ansible.builtin.env', 'USER') | default('nobody', True) }}"
+        mode: '0640'
       delegate_to: localhost
