@@ -11,6 +11,35 @@
         name: apache2
         state: present
 
+    - name: Create website content directory
+      ansible.builtin.file:
+        path: /var/www/itc
+        state: directory
+        mode: "0775"
+
+    - name: Create index.html
+      ansible.builtin.template:
+        src: ../templates/index.html.j2
+        dest: /var/www/itc/index.html
+        mode: "0644"
+
+    - name: Create VirtualHost configuration
+      ansible.builtin.template:
+        src: ../templates/itc.conf.j2
+        dest: /etc/apache2/sites-available/itc.conf
+        mode: "0644"
+
+    - name: Remove default enabled site
+      ansible.builtin.file:
+        path: /etc/apache2/sites-enabled/000-default.conf
+        state: absent
+
+    - name: Enable new site
+      ansible.builtin.file:
+        path: /etc/apache2/sites-enabled/itc.conf
+        src: /etc/apache2/sites-available/itc.conf
+        state: link
+
     # Test localhost commands work as expected
     - name: Create a test file
       ansible.builtin.copy:
